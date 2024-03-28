@@ -98,7 +98,7 @@ export class StatisticsComponent implements OnInit {
           this.displayResultTable(); // Display result table
         },
         (error) => {
-          const errorMessage = error.message || "An error occurred during update.";
+          const errorMessage = error.error || "An error occurred during update.";
           this.errorMessage = errorMessage;
           this.error = true;
           this.toaster.error("Error during upload:", errorMessage);

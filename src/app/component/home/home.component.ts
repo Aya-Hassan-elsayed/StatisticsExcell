@@ -50,13 +50,15 @@ export class HomeComponent  implements OnInit{
           console.log(data);
           this.flag = true;
           this.toaster.success("Update is Done"); // Show "Update is Done" message
-          this.showStyledAlert(data); // Show data received
+          setTimeout(() => {
+            this.showStyledAlert(data); // Show data received after a delay
+          }, 1000); // Adjust the delay time as needed
         },
         (error) => {
-          const errorMessage = error.message || "An error occurred during update.";
+          const errorMessage = error.error || "An error occurred during update.";
           this.errorMessage = errorMessage;
           this.error = true;
-          this.toaster.error("Error during upload:", errorMessage);
+          this.toaster.error("Error during upload:", errorMessage, { disableTimeOut: true }); // Disable timeout for error toast
           this.flag = true;
         }
       );
@@ -77,7 +79,7 @@ export class HomeComponent  implements OnInit{
     const config: Partial<IndividualConfig> = {
       closeButton: true, // Show close button
       progressBar: true, // Show progress bar
-      toastClass: 'ngx-toastr custom-toast', // Apply custom CSS class for the toaster message
+      toastClass: 'ngx-toastr custom-toast', // Apply custom CSS class for the toastr message
       positionClass: 'toast-top-center', // Set position of the toastr message
       enableHtml: true, // Enable HTML content in the toastr message
       disableTimeOut: true // Do not automatically close

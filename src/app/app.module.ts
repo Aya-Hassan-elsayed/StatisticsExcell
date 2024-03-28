@@ -13,6 +13,7 @@ import { MatCardModule } from '@angular/material/card';
 import { ToastrModule } from 'ngx-toastr';
 import { StatisticsComponent } from './component/statistics/statistics.component';
 import { HomeComponent } from './component/home/home.component';
+import { Statistics2Component } from './component/statistics2/statistics2.component';
 
 
 
@@ -23,7 +24,8 @@ import { HomeComponent } from './component/home/home.component';
   declarations: [
     AppComponent,
     StatisticsComponent,
-    HomeComponent
+    HomeComponent,
+    Statistics2Component
   ],
   imports: [
     BrowserModule,

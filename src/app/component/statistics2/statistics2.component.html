@@ -1,0 +1,258 @@
+
+<div class="upload-page">
+
+  <!-- Background Glow -->
+  <div class="background-glow glow-one"></div>
+  <div class="background-glow glow-two"></div>
+
+
+  <!-- Main Card -->
+  <div class="upload-card">
+
+    <!-- Animated Top Line -->
+    <div class="card-lines"></div>
+
+
+    <!-- ================= LOGO ================= -->
+
+    <div class="logo-wrapper">
+
+      <div class="logo-ring"></div>
+
+      <img
+        src="assets/images/logo.png"
+        alt="Logo"
+        class="logo">
+
+    </div>
+
+
+    <!-- ================= CONTENT ================= -->
+
+    <div class="upload-content">
+
+      <span class="eyebrow">
+        CUSTOM UPDATES
+      </span>
+
+
+      <h1>
+        Upload Excel
+        <span>File</span>
+      </h1>
+
+
+      <p class="description">
+        Select an Excel file to upload and update your data.
+      </p>
+
+
+      <!-- ================= UPLOAD AREA ================= -->
+
+      <div class="upload-area">
+
+
+        <!-- Upload Icon -->
+
+        <label
+          for="excelFile"
+          class="upload-icon">
+
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+
+            <path
+              d="M12 16V4"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round">
+            </path>
+
+            <path
+              d="M7 9L12 4L17 9"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"
+              stroke-linejoin="round">
+            </path>
+
+            <path
+              d="M5 15V18C5 19.1046 5.89543 20 7 20H17C18.1046 20 19 19.1046 19 18V15"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round">
+            </path>
+
+          </svg>
+
+        </label>
+
+
+        <h3>
+          Select Excel File
+        </h3>
+
+
+        <p>
+          Choose the Excel file you want to upload
+        </p>
+
+
+        <span class="supported-files">
+          .XLSX &nbsp; • &nbsp; .XLS
+        </span>
+
+
+        <!-- Real File Input - Hidden -->
+
+        <input
+          id="excelFile"
+          type="file"
+          accept=".xlsx,.xls"
+          (change)="selectfile($event)">
+
+      </div>
+
+
+      <!-- ================= SELECTED FILE ================= -->
+
+      <div
+        class="selected-file"
+        *ngIf="file">
+
+        <div class="file-icon">
+
+          <span>
+            XL
+          </span>
+
+        </div>
+
+
+        <div class="file-info">
+
+          <strong>
+            {{ file.name }}
+          </strong>
+
+          <span>
+            Excel File Selected
+          </span>
+
+        </div>
+
+      </div>
+
+
+      <!-- ================= UPLOAD BUTTON ================= -->
+
+      <div
+        class="button-wrapper"
+        *ngIf="flag">
+
+        <button
+          type="button"
+          class="upload-button"
+          (click)="upload()">
+
+          <span>
+            Upload File
+          </span>
+
+          <svg
+            viewBox="0 0 24 24"
+            fill="none">
+
+            <path
+              d="M5 12H19"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round">
+            </path>
+
+            <path
+              d="M13 6L19 12L13 18"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"
+              stroke-linejoin="round">
+            </path>
+
+          </svg>
+
+        </button>
+
+      </div>
+
+
+      <!-- ================= LOADING ================= -->
+
+      <div
+        class="upload-status"
+        *ngIf="!flag">
+
+        <div class="loading-icon">
+
+          <div class="spinner"></div>
+
+        </div>
+
+
+        <h3>
+          Uploading file...
+        </h3>
+
+
+        <p>
+          Please wait while your file is being processed.
+        </p>
+
+
+        <div class="loading-bar">
+
+          <div class="loading-value"></div>
+
+        </div>
+
+      </div>
+
+
+      <!-- ================= ERROR ================= -->
+
+      <div
+        class="error-message"
+        *ngIf="error">
+
+        <span class="error-icon">
+          !
+        </span>
+
+        <span>
+          {{ errorMessage }}
+        </span>
+
+      </div>
+
+    </div>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <div class="card-footer">
+
+      <span></span>
+
+      <p>
+        Excel Data Management
+      </p>
+
+      <span></span>
+
+    </div>
+
+
+  </div>
+
+</div>
